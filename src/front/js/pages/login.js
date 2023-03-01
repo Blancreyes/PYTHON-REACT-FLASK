@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-
 import { Context } from "../store/appContext";
 
-export const Demo = () => {
+export const Login = () => {
   const { store, actions } = useContext(Context);
 
   return (
@@ -43,7 +42,11 @@ export const Demo = () => {
             Check me out
           </label>
         </div>
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
       </form>
+
       <br />
       <Link to="/">
         <button className="btn btn-primary">Back home</button>
