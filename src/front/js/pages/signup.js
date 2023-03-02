@@ -10,7 +10,6 @@ export const Signup = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(email, password);
     let signMeUp = await actions.signUp(email, password);
     if (signMeUp) {
       setEmail("");
