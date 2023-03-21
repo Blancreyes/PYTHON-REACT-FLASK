@@ -31,7 +31,7 @@ const getState = ({
                 try {
                     // fetching data from the backend
                     let response = await axios.post(
-                        "https://3000-blancreyes-authenticati-k9psq2hl5uu.ws-eu89.gitpod.io/user", {
+                        "https://3000-blancreyes-authenticati-1lmbwos89sv.ws-eu90.gitpod.io/user", {
                             name: "Luis",
                             surname: "Blanco",
                             email: email,
@@ -49,15 +49,16 @@ const getState = ({
             logIn: async (email, password) => {
                 try {
                     let response = await axios.post(
-                        "https://3000-blancreyes-authenticati-k9psq2hl5uu.ws-eu89.gitpod.io/login", {
+                        "https://3000-blancreyes-authenticati-1lmbwos89sv.ws-eu90.gitpod.io/login", {
                             email: email,
                             password: password,
                         }
                     );
-                    // localStorage.setItem("token", response.data.profile);
-                    // setStore({
-                    //     auth: true,
-                    // });
+                    localStorage.setItem("token", response.data.access_token);
+                    console.log(response.data.access_token);
+                    setStore({
+                        auth: true,
+                    });
                     return true;
                 } catch (error) {
                     console.log(error);
@@ -70,7 +71,7 @@ const getState = ({
                 let token = localStorage.getItem("token");
                 try {
                     let response = await axios.get(
-                        "https://3000-blancreyes-authenticati-k9psq2hl5uu.ws-eu89.gitpod.io/profile", {
+                        "https://3000-blancreyes-authenticati-1lmbwos89sv.ws-eu90.gitpod.io/profile", {
                             headers: {
                                 Authorization: "Bearer " + token,
                             },
